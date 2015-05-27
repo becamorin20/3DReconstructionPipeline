@@ -11,7 +11,10 @@ What were the main steps you needed to accomplish to get the project going.  A p
 	6 - used the calibrate tool box to get the calib_data.mat for the left camera
 	7 - used the calibrate tool box to get the calib_data.mat for the right camera
 	8 - use rodriguez formula to get rotation matrix
-	- - try to create a single mesh
+	9 - alter the calibrate script to use our new caml and camr values
+	9 - edit decode to understand pairs have underscore i
+	10 - update increment to do an +1 instead of plus 2
+	10 - try to create a single mesh
 
 Section 2. What goals have you achieved so far?
 

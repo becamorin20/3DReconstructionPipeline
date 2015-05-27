@@ -32,10 +32,13 @@ I = imread(sprintf('%s%2.2d.jpg',imageprefix,start));
 goodpixels = ones(h,w);
 
 bit = 1;
-for i = start:2:stop
+for i = start:1:stop
 
   I = imread(sprintf('%s%2.2d.jpg',imageprefix,i));
-  In = imread(sprintf('%s%2.2d.jpg',imageprefix,i+1));
+  %changed to _i to handle new file format for final project
+  %In = imread(sprintf('%s%2.2d.jpg',imageprefix,i+1));
+  In = imread(sprintf('%s%2.2d_i.jpg',imageprefix,i));
+
 
   I = im2double(rgb2gray(I));
   In = im2double(rgb2gray(In));
@@ -69,9 +72,12 @@ Xdec = X*(2.^(0:9)');
 % to make its dimension (nbits,h*w)
 Ib = shiftdim(Ib,2);
 Ib = Ib(1:10,:);
+%changed valued to 5 because we only have 10 images
+%Ib = Ib(1:5,:);
 
 % convert the binary into a decimal
 Ib = Ib'*(2.^(0:9)')+1;
+%Ib = Ib'*(2.^(0:4)')+1;
 
 % now look up the results in our table Xinv
 % and reshape it back into the original image
