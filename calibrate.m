@@ -48,6 +48,8 @@ Pworld = [XYworld XZworld YZworld];
 
 
 % initial guesses of parameters.
+% we have these values!
+%if calib odd then left camera so use left valuees
 cy = size(I,1) / 2;
 cx = size(I,2) / 2;
 f = 1000;
