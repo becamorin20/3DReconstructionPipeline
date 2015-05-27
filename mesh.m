@@ -1,13 +1,13 @@
 
 % scan we are working on
-scandir = '/home/fowlkes/cs117/hwk/hwk4b/scan2/'
+ scandir = 'teapot/'
 
 % threshold for pruning neighbors
 nbrthresh = 0.25;
 trithresh = 1;
 
 % load in results of reconstruct 
-load([scandir 'scandata.mat']);
+load([scandir 'scandata1.mat']);
 
 
 %
