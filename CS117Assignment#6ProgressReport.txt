@@ -1,0 +1,29 @@
+CS117 Assignment #6: Progress Report
+
+Section 1. Overall goals of the project.
+
+What were the main steps you needed to accomplish to get the project going.  A paragraph or bulleted list should suffice.
+	1 - download all matlab files from class website
+	2 - download the relevant images for teapot, including the zip folder
+	3 - open up matlab and create a new project
+	4 - load in sample files given to us
+	5 - copy over calibrate script 
+	6 - try to create a single mesh
+
+Section 2. What goals have you achieved so far?
+
+The intermediate steps you have achieved so far.  For example collecting scan data, assembling hardware, coding algorithms, figuring out file formats, etc.  By now you should hopefully have accomplished several of your intermediate project goals. 
+
+For each of your intermeidate goals write a short subsection that includes
+
+(a) a brief definition of what you have actually done with respect to this goal, e.g. what you have code you have implemented described in some high level pseudo code or flowchart.  You can refer to specific details in the code you have uploaded as appropriate. 
+
+(b) preliminary results if available (e.g. visualization of decoded images, 3D point clouds, partial meshes, etc.)  If you don't have any preliminary results you can demonstrate, explain why.  If at all possible, do include example images to indicate progress and functioning of your code.
+
+(c) a list of any difficulties you have encountered so far and any changes you've had to make
+
+Section 3. What remains to be done?
+
+A brief section (a few lines or bulleted list) describing what remains to be done on the project (coding, testing, documentation, etc) and any difficulties you anticipate in getting the project finished.
+
+What to turn in: Please upload a .pdf or .txt file as you prefer to the EEE progress report directory (please no .doc, convert to pdf first). 
