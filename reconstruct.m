@@ -11,7 +11,6 @@ scandir = 'teapot/';
 [camL,xL,Xtrue] = calibrate([scandir 'calib/l_calib_01.jpg']);
 [camR,xR,Xtrue] = calibrate([scandir 'calib/r_calib_01.jpg']);
 
-
 %
 % visualize the calibration results
 %
