@@ -1,3 +1,5 @@
+function [] = diaz_mesh(iteration,recon_dir)
+
 % scan we are working on
  scandir = 'teapot/';
 
@@ -6,16 +8,39 @@ nbrthresh = 0.25;
 trithresh = 1;
 
 % load in results of reconstruct 
-load([scandir 'scandata1.mat']);
+loaddir = strcat(recon_dir,'/scandata',int2str(iteration),'.mat');
+%load([scandir 'scandata1.mat']);
+load([loaddir]);
 
-% goodpoints = find( (X(1,:)>-500) & (X(1,:)<500) & (X(2,:)>-500) & (X(2,:)<500) & (X(3,:)>-500) & (X(3,:)<500) );
-% fprintf('dropping %2.2f %% of points from scan',100*(1 - (length(goodpoints)/size(X,2))));
-% X = X(:,goodpoints);
-% xR = xR(:,goodpoints);
-% xL = xL(:,goodpoints);
-% xColor = xColor(:,goodpoints);
+%
+% cleaning step 1: remove points outside known bounding box
+%
+goodpoints = find( (X(1,:)>-140) & (X(1,:)<25) & (X(2,:)>-100) & (X(2,:)<100) & (X(3,:)>550) & (X(3,:)<800) );
+fprintf('dropping %2.2f %% of points from scan',100*(1 - (length(goodpoints)/size(X,2))));
+X = X(:,goodpoints);
+xR = xR(:,goodpoints);
+xL = xL(:,goodpoints);
+xColor = xColor(:,goodpoints);
 
-tri = delaunay(xL(1,:),xL(2,:));
+fprintf('filtering right image neighbors\n');
+[tri,pterrR] = nbr_error(xR,X);
+
+fprintf('filtering left image neighbors\n');
+[tri,pterrL] = nbr_error(xL,X);
+
+goodpoints = find((pterrR<nbrthresh) & (pterrL<nbrthresh));
+fprintf('dropping %2.2f %% of points from scan\n',100*(1-(length(goodpoints)/size(X,2))));
+X = X(:,goodpoints);
+xR = xR(:,goodpoints);
+xL = xL(:,goodpoints);
+xColor = xColor(:,goodpoints);
+
+%
+% cleaning step 3: remove triangles which have long edges
+%
+[tri,terr] = tri_error(xL,X);
+subt = find(terr<trithresh);
+tri = tri(subt,:);
 
 figure(1); clf;
 h = trisurf(tri,X(1,:),X(2,:),X(3,:));
@@ -23,7 +48,21 @@ set(h,'edgecolor','none')
 set(gca,'projection','perspective')
 set(gcf,'renderer','opengl')
 axis image; axis vis3d;
+zlabel('Z');
+xlabel('X');
+ylabel('Y');
 camorbit(120,0); camlight left;
 camorbit(120,0); camlight left;
 lighting phong;
 material dull;
+
+%save data
+savedirstart = 'meshes/meshdata';
+iteration_string = int2str(iteration);
+savedirending = '.mat';
+savedir = strcat(scandir,savedirstart,iteration_string,savedirending);
+save([savedir]);
+
+
+
+end

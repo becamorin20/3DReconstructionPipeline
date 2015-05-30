@@ -1,4 +1,20 @@
 %Daniel Diaz 74393336
+function [] = diaz_reconstruct(iteration)
+
+% function [] = diaz_reconstruct(iteration)
+%
+%
+% Input:
+%
+% Iteration : int i for iteration number
+%               start at 1!
+%
+%
+% Output:
+%
+%  - : saves to reconstructions directory
+%   TODO may need to ensure directory exists
+%
 
 % directory where the scan data is stored
 scandir = 'teapot/';
@@ -24,10 +40,18 @@ camR.R = [ 0.7273    0.0027    0.6863;
 %calculate pixels
 thresh = 0.001;
 
-[R_h,R_h_good] = decode([scandir '/set_1/r_'],11,20,thresh);
-[R_v,R_v_good] = decode([scandir '/set_1/r_'],1,10,thresh);
-[L_h,L_h_good] = decode([scandir '/set_1/l_'],11,20,thresh);
-[L_v,L_v_good] = decode([scandir '/set_1/l_'],1,10,thresh);
+% [R_h,R_h_good] = decode([scandir '/set_1/r_'],11,20,thresh);
+% [R_v,R_v_good] = decode([scandir '/set_1/r_'],1,10,thresh);
+% [L_h,L_h_good] = decode([scandir '/set_1/l_'],11,20,thresh);
+% [L_v,L_v_good] = decode([scandir '/set_1/l_'],1,10,thresh);
+
+decodestr1 = strcat('/set_' , int2str(iteration) , '/r_');
+decodestr2 = strcat('/set_' , int2str(iteration) , '/l_');
+
+[R_h,R_h_good] = decode([scandir decodestr1],11,20,thresh);
+[R_v,R_v_good] = decode([scandir decodestr1],1,10,thresh);
+[L_h,L_h_good] = decode([scandir decodestr2],11,20,thresh);
+[L_v,L_v_good] = decode([scandir decodestr2],1,10,thresh);
 
 
 %
@@ -83,12 +107,16 @@ xColor = zeros(3,size(xR,2));
 
 % load in the images and seperate out the red, green, blue
 % color channels into separate matrices
-rgbL = imread([scandir '/set_1/l_rgb.jpg']);
+
+colorstr1 = strcat('/set_' , int2str(iteration) , '/l_rgb.jpg');
+colorstr2 = strcat('/set_' , int2str(iteration) , '/r_rgb.jpg');
+
+rgbL = imread([scandir colorstr1]);
 rgbL_R = rgbL(:,:,1); 
 rgbL_G = rgbL(:,:,2);
 rgbL_B = rgbL(:,:,3);
 
-rgbR = imread([scandir '/set_1/r_rgb.jpg']);
+rgbR = imread([scandir colorstr2]);
 rgbR_R = rgbR(:,:,1);
 rgbR_G = rgbR(:,:,2);
 rgbR_B = rgbR(:,:,3);
@@ -111,5 +139,11 @@ z=1;
 %
 % save the results of all our hard work
 %
-save([scandir 'scandata1.mat'],'X','xColor','xL','xR','camL','camR','scandir');
+savedirstart = 'reconstructions/scandata';
+iteration_string = int2str(iteration);
+savedirending = '.mat';
+savedir = strcat(scandir,savedirstart,iteration_string,savedirending);
+save([savedir],'X','xColor','xL','xR','camL','camR','scandir');
 
+%end function
+end
