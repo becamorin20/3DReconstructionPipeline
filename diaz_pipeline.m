@@ -11,7 +11,7 @@ addpath('TOOLBOX_calib/');
 
 %step 3 generate meshes
 recon_dir = 'teapot/reconstructions';
-for n = 2:10
+for n = 1:1
     fprintf('Creating Mesh ');
     fprintf(int2str(n));
     fprintf('\n');
