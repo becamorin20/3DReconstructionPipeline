@@ -1,0 +1,91 @@
+CS117 Assignment #6: Progress Report
+
+Section 1. Overall goals of the project.
+
+What were the main steps you needed to accomplish to get the project going.  A paragraph or bulleted list should suffice.
+	1 - download all matlab files from class website
+	2 - download the relevant images for teapot, including the zip folder
+	3 - open up matlab and create a new project
+	4 - load in sample files given to us
+	5 - download calibrate toolbox from website
+	6 - used the calibrate tool box to get the calib_data.mat for the left camera
+	7 - used the calibrate tool box to get the calib_data.mat for the right camera
+	8 - use rodriguez formula to get rotation matrix
+	9 - alter the calibrate script to use our new caml and camr values
+	9 - edit decode to understand pairs have underscore i
+	10 - update increment to do an +1 instead of plus 2
+	10 - try to create a single mesh
+
+Section 2. What goals have you achieved so far?
+
+The intermediate steps you have achieved so far.  For example collecting scan data, assembling hardware, coding algorithms, figuring out file formats, etc.  By now you should hopefully have accomplished several of your intermediate project goals. 
+
+For each of your intermeidate goals write a short subsection that includes
+
+(a) a brief definition of what you have actually done with respect to this goal, e.g. what you have code you have implemented described in some high level pseudo code or flowchart.  You can refer to specific details in the code you have uploaded as appropriate. 
+
+(b) preliminary results if available (e.g. visualization of decoded images, 3D point clouds, partial meshes, etc.)  If you don't have any preliminary results you can demonstrate, explain why.  If at all possible, do include example images to indicate progress and functioning of your code.
+
+(c) a list of any difficulties you have encountered so far and any changes you've had to make
+
+Section 3. What remains to be done?
+
+A brief section (a few lines or bulleted list) describing what remains to be done on the project (coding, testing, documentation, etc) and any difficulties you anticipate in getting the project finished.
+
+What to turn in: Please upload a .pdf or .txt file as you prefer to the EEE progress report directory (please no .doc, convert to pdf first). 
+
+
+%left camera
+
+% Calibration results after optimization (with uncertainties):
+% 
+% Focal Length:          fc = [ 1856.90593   1863.13504 ] ± [ 9.66772   9.41048 ]
+% Principal point:       cc = [ 1403.64475   869.11654 ] ± [ 11.80363   8.93633 ]
+% Skew:             alpha_c = [ 0.00000 ] ± [ 0.00000  ]   => angle of pixel axes = 90.00000 ± 0.00000 degrees
+% Distortion:            kc = [ -0.06813   0.06476   -0.00360   0.00841  0.00000 ] ± [ 0.01149   0.01663   0.00135   0.00197  0.00000 ]
+% Pixel error:          err = [ 0.55215   0.68205 ]
+
+%right camera
+
+% Calibration results after optimization (with uncertainties):
+% 
+% Focal Length:          fc = [ 1844.49359   1843.96474 ] ± [ 9.86667   10.50574 ]
+% Principal point:       cc = [ 1376.02168   942.95776 ] ± [ 13.66239   9.06558 ]
+% Skew:             alpha_c = [ 0.00000 ] ± [ 0.00000  ]   => angle of pixel axes = 90.00000 ± 0.00000 degrees
+% Distortion:            kc = [ -0.06103   0.02402   0.00353   0.00259  0.00000 ] ± [ 0.01295   0.02591   0.00166   0.00210  0.00000 ]
+% Pixel error:          err = [ 0.69097   0.61089 ]
+
+STEREO CALIBRATION RESULTS:
+Stereo calibration parameters after loading the individual calibration files:
+
+
+Intrinsic parameters of left camera:
+
+Focal Length:          fc_left = [ 1856.90593   1863.13504 ] ± [ 9.66772   9.41048 ]
+Principal point:       cc_left = [ 1403.64475   869.11654 ] ± [ 11.80363   8.93633 ]
+Skew:             alpha_c_left = [ 0.00000 ] ± [ 0.00000  ]   => angle of pixel axes = 90.00000 ± 0.00000 degrees
+Distortion:            kc_left = [ -0.06813   0.06476   -0.00360   0.00841  0.00000 ] ± [ 0.01149   0.01663   0.00135   0.00197  0.00000 ]
+
+
+Intrinsic parameters of right camera:
+
+Focal Length:          fc_right = [ 1844.49359   1843.96474 ] ± [ 9.86667   10.50574 ]
+Principal point:       cc_right = [ 1376.02168   942.95776 ] ± [ 13.66239   9.06558 ]
+Skew:             alpha_c_right = [ 0.00000 ] ± [ 0.00000  ]   => angle of pixel axes = 90.00000 ± 0.00000 degrees
+Distortion:            kc_right = [ -0.06103   0.02402   0.00353   0.00259  0.00000 ] ± [ 0.01295   0.02591   0.00166   0.00210  0.00000 ]
+
+
+Extrinsic parameters (position of right camera wrt left camera):
+
+Rotation vector:             om = [ 0.03961   0.75637  0.01272 ]
+Translation vector:           T = [ -438.85342   -5.70884  188.20991 ]
+
+
+Rotation Matrix:
+R =
+
+    0.7273    0.0027    0.6863
+    0.0258    0.9992   -0.0313
+   -0.6858    0.0405    0.7266
+Translation:
+T = [ -438.85342   -5.70884  188.20991 ]

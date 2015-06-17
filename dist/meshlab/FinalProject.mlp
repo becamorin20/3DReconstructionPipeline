@@ -1,0 +1,86 @@
+<!DOCTYPE MeshLabDocument>
+<MeshLabProject>
+ <MeshGroup>
+  <MLMesh label="set1.ply" filename="../MATLAB/CS117Final-Project/teapot/plyFiles/set1.ply">
+   <MLMatrix44>
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+  <MLMesh label="set2.ply" filename="../MATLAB/CS117Final-Project/teapot/plyFiles/set2.ply">
+   <MLMatrix44>
+0.794566 -0.0280075 -0.606532 343.369 
+0.0301591 0.999523 -0.00664552 5.75718 
+0.606429 -0.0130121 0.795031 165.029 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+  <MLMesh label="set3.ply" filename="../MATLAB/CS117Final-Project/teapot/plyFiles/set3.ply">
+   <MLMatrix44>
+0.255594 0.033832 0.966192 -619.257 
+0.0733161 0.995831 -0.0542647 41.4792 
+-0.964 0.0847072 0.252048 369.72 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+  <MLMesh label="set4.ply" filename="../MATLAB/CS117Final-Project/teapot/plyFiles/set4.ply">
+   <MLMatrix44>
+-0.608467 0.0924245 0.788179 -585.202 
+0.0699167 0.995576 -0.0627695 47.8172 
+-0.790493 0.0169137 -0.612237 898.082 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+  <MLMesh label="set5.ply" filename="../MATLAB/CS117Final-Project/teapot/plyFiles/set5.ply">
+   <MLMatrix44>
+-0.990836 0.0878575 -0.102593 -73.4596 
+0.0932467 0.994438 -0.0489639 42.1428 
+0.0977203 -0.0580816 -0.993518 1167.08 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+  <MLMesh label="set6.ply" filename="../MATLAB/CS117Final-Project/teapot/plyFiles/set6.ply">
+   <MLMatrix44>
+-0.836295 0.0432387 -0.546571 206.647 
+0.0690069 0.997259 -0.0266936 27.9588 
+0.543919 -0.0600409 -0.836987 1117.53 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+  <MLMesh label="set7.ply" filename="../MATLAB/CS117Final-Project/teapot/plyFiles/set7.ply">
+   <MLMatrix44>
+0.201009 -0.0490992 -0.978358 521.882 
+0.050654 0.997928 -0.0396742 34.1908 
+0.978279 -0.0415828 0.20308 530.54 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+  <MLMesh label="set8.ply" filename="../MATLAB/CS117Final-Project/teapot/plyFiles/set8.ply">
+   <MLMatrix44>
+0.898256 -0.0577504 -0.435662 242.056 
+0.0522653 0.998331 -0.024575 26.7983 
+0.436354 -0.000695335 0.899775 95.8029 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+  <MLMesh label="set9.ply" filename="../MATLAB/CS117Final-Project/teapot/plyFiles/set9.ply">
+   <MLMatrix44>
+0.988233 -0.0336603 -0.149206 88.337 
+0.0276266 0.998722 -0.0423291 36.2252 
+0.15044 0.037709 0.9879 26.682 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+  <MLMesh label="set10.ply" filename="../MATLAB/CS117Final-Project/teapot/plyFiles/set10.ply">
+   <MLMatrix44>
+0.617724 0.779586 0.103262 -100.419 
+-0.158182 -0.00544921 0.987395 -561.297 
+0.770322 -0.626272 0.11995 611.825 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+ </MeshGroup>
+ <RasterGroup/>
+</MeshLabProject>

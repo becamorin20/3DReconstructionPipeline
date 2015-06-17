@@ -1,0 +1,23 @@
+ProjectDescriptions.txt
+
+Daniel Diaz
+74393336
+CS 117
+Project Proposal
+Problem: 	For this project I plan on executing the default project. This will involve creating a pipeline for constructing 3D models from multiple scans. Some of the problems that will still need to be solved include mesh cleanup, mesh alignment, how to combine the meshes into the final model, and rendering the final model with color.
+Algorithms:
+	For this project I will need to implement Mesh Cleaning and Mesh Alignment. 
+Mesh Cleaning will consist of several techniques for cleaning up the scanned data including threshold distances, user assisted pruning, hole filling, and smoothing. Mesh alignment will require some user input to give an initial estimate of alignment and then use the ICP algorithm to do the fine tuning of the alignment. Finally when combining the meshes, will use publicly available software that implements Poisson Reconstruction.
+	ICP also known as Iterative Closest Point is a method for aligning 3D data. As described in lecture 9 of Professor Fowlkes lectures it involves 3 main steps:
+Estimating Corresponding points.
+Aligning points by computing R,T which brings points closet together (minimize the mean squared error).
+The optimal t is chosen so as to align the center of masses of the two sets of points
+The optimal R can be found by computing the eigenvectors of a 3x3 matrix constructed from the point coordinates
+Repeat until convergence.
+ICP will be very important when it comes to mesh cleanup.
+	Poisson Reconstruction is another algorithm that will be pivotal in this project. As mentioned in Professor Fowlkes lecture slides, the main idea behind Poisson Reconstruction is the idea that the normal vectors on a surface are the same as the gradient of an implicit function F defining the surface. This algorithm will be important when combining the meshes.
+3. Data
+	For my scan data I will use the images provided by the professor. These consist of images of an object illuminated with a gray code. The current location of these images is http://www.ics.uci.edu/~fowlkes/class/cs117/data/teapot/.
+4. Verification
+	The first thing I will need to verify is the initial scans given by the professor. Then I will need to verify the cleaned up meshed by viewing them in Matlab and inspecting them for correctness. Then after the poisson reconstruction I will need to import the ply files into blender and examine the reconstruction by inspection.
+5. Milestones
